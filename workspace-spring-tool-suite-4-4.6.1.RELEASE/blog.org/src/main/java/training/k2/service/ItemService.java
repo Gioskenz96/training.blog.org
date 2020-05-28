@@ -1,40 +1,15 @@
 package training.k2.service;
 
-import java.util.Collection;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 import training.k2.dao.Item;
-import training.k2.dao.ItemDAO;
+import java.util.List;
 
-@Component(value = "itemService")
-public class ItemService {
+public interface ItemService {
 	
-	@Autowired
-	private ItemDAO<Item> itemDAO;
-	private Item item = new Item();
+	List<Item> findAll();
+	Item findID(int id);
+	Item create(Item item);
+	Item edit(Item item);
+	void deleteById(int id);
 	
-	public void save() {
-		itemDAO.save(item);
-		item = new Item();
-	}
-	
-	public Collection<Item> getAllItems(){
-		return itemDAO.getAll();
-	}
-	
-	public int saveItem(Item item) {
-		validate(item);
-		return itemDAO.save(item);
-	}
-	
-	private void validate(Item item) {
-		//
-	}
-	
-	public Item getItem() {
-		return item;
-	}
 
 }

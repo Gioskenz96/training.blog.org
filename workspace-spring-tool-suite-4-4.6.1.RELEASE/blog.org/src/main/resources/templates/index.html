@@ -6,6 +6,13 @@
 </head>
 <body>
 Data: <b th:text="${#execInfo.now.time}"></b>
+<a href="posts/index.html" th:href="@{/posts}">Posts</a>
+ 	<a href="posts/create.html" th:href="@{/posts/create}">Create Post</a>
+
+<article th:each="i : ${latestItem}">
+	<h2 class="title" th:text="${i.title}">Titolo</h2>
+	<p class="content" th:utext="${i.content}">Contenuto</p>
+</article>
 
 </body>
 </html>
