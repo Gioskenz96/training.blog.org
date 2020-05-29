@@ -14,11 +14,18 @@ import java.util.List;
 public class ItemController {
 	@Autowired
 	private ItemService itemService;
-	@RequestMapping("/index")
-	public String index(Model model) {
+	@RequestMapping("/posts")
+	public String posts(Model model) {
 		List<Item> latestItem = itemService.findAll();
 		model.addAttribute("latestItem", latestItem);
-		return "index";
+		return "posts";
 	}
+	
+	@RequestMapping("/create")
+	public String createItem(Model model) {
+		return "create";
+	}
+		
+	
 	
 }
