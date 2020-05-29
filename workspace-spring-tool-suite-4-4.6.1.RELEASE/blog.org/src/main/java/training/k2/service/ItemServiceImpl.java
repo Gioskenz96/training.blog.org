@@ -56,7 +56,7 @@ public class ItemServiceImpl implements ItemService {
                 return;
             }
         }
-        throw new RuntimeException("Post not found: " + id);
+        throw new RuntimeException("Articolo non trovato: " + id);
 	}
 
 }
