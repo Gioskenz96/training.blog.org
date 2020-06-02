@@ -16,6 +16,10 @@ public class ItemServiceImpl implements ItemService {
 		add(new Item("Titolo2", "Prova Articolo2", null, 2));
 	}};
 	
+	public List<Item> Item(){
+		return item;
+	}
+	
 	@Override
 	public List<Item> findAll(){
 		return this.item;
@@ -32,9 +36,9 @@ public class ItemServiceImpl implements ItemService {
 	@Override
 	public Item create(Item item) {
 		item.setID(this.item.stream().mapToInt(
-				i -> i.getID()).max().getAsInt() + 1);
-		this.item.add(item);
-		return item;
+                p -> p.getID()).max().getAsInt() + 1);
+        this.item.add(item);
+        return item;
 	}
 	
 	@Override
