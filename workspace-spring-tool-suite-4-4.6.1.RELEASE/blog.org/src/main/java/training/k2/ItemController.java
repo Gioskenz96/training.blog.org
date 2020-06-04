@@ -33,13 +33,19 @@ public class ItemController {
 	}
 	
 	@RequestMapping("/edit/{id}")
-	public String showItemEditForm(@PathVariable("id") Integer id, Model model) {
-		Item item = new Item();
-		itemService.findID(item.getID());
+	public String editItem(@PathVariable("id") Integer id, Model model, Item item) {
+		item.setID(1);
 		itemService.edit(item);
 		model.addAttribute("item", item);
 		return "edit";
 	}
+	@RequestMapping("/delete")
+	public String deleteItem() {
+		itemService.deleteById(1);
+		return "delete";
+	}
+	
+	
 	
 		
 	
