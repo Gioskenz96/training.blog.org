@@ -4,6 +4,7 @@ package training.k2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -31,9 +32,12 @@ public class ItemController {
 		return "create";
 	}
 	
-	@RequestMapping("/edit")
-	public String editItem(Item item) {
+	@RequestMapping("/edit/{id}")
+	public String showItemEditForm(@PathVariable("id") Integer id, Model model) {
+		Item item = new Item();
+		itemService.findID(item.getID());
 		itemService.edit(item);
+		model.addAttribute("item", item);
 		return "edit";
 	}
 	

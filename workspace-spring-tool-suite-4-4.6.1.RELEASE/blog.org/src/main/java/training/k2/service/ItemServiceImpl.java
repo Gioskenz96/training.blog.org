@@ -12,8 +12,8 @@ import training.k2.dao.Item;
 @Service
 public class ItemServiceImpl implements ItemService {
 	private List<Item> item = new ArrayList<Item>() {{
-		add(new Item("Titolo", "Prova Articolo", null, 1));
-		add(new Item("Titolo2", "Prova Articolo2", null, 2));
+		add(new Item("Titolo", "Prova Articolo", 1));
+		add(new Item("Titolo2", "Prova Articolo2", 2));
 	}};
 	
 	public List<Item> Item(){
