@@ -5,9 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import training.k2.dao.Item;
 import training.k2.service.ItemService;
 import training.k2.service.ItemServiceImpl;
@@ -17,8 +15,6 @@ import java.util.List;
 public class ItemController {
 	@Autowired
 	private ItemService itemService;
-	@Autowired
-	private ItemServiceImpl item;
 	@RequestMapping("/posts")
 	public String posts(Model model) {
 		List<Item> latestItem = itemService.findAll();
@@ -31,17 +27,19 @@ public class ItemController {
 		itemService.create(item);
 		return "create";
 	}
-	
+
 	@RequestMapping("/edit/{id}")
 	public String editItem(@PathVariable("id") Integer id, Model model, Item item) {
-		item.setID(1);
+		item.setID(id);
 		itemService.edit(item);
 		model.addAttribute("item", item);
 		return "edit";
 	}
-	@RequestMapping("/delete")
-	public String deleteItem() {
-		itemService.deleteById(1);
+	
+	@RequestMapping("/delete/{id}")
+	public String deleteItem(@PathVariable("id") Integer id, Item item) {
+		item.setID(id);
+		itemService.deleteById(id);
 		return "delete";
 	}
 	
