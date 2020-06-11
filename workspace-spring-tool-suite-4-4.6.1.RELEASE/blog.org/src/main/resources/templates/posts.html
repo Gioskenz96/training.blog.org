@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="">
+<head>
+<meta charset="ISO-8859-1">
+<title>Lista articoli</title>
+</head>
+<body>
+
+<article th:each="i : ${latestItem}">
+	<h2 class="title" th:text="${i.title}">Titolo</h2>
+	<p class="content" th:utext="${i.content}">Contenuto</p>
+</article>
+
+<a href="index.html" th:href="@{/index}">Go Back</a>
+
+
+</body>
+</html>

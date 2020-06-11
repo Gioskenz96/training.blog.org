@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+Data: <b th:text="${#execInfo.now.time}"></b>
+<a href="posts/index.html" th:href="@{/posts}">Posts</a>
+<a href="posts/create.html" th:href="@{/create}">Create Post</a>
+<a href="posts/edit.html" th:href="@{/edit/1}">Edit Post</a>
+<a href="posts/delete.html" th:href="@{/delete/1}">Delete Post</a>
+</body>
+</html>

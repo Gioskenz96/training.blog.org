@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Create Post</title>
+</head>
+<body>
+<form th:object="${item}" method="post">
+	<div>
+	<label for="title">Titolo:</label>
+	<input type="text" class="form-control" id="title" th:field="*{title}" placeholder="Titolo"/>
+	</div>
+	<div><label for="content">Contenuto:</label>
+	<input type="text" class="form-control" id="content" th:field="*{content}" placeholder="Contenuto"/>
+	</div>
+	<button type="submit" class="btn btn-primary" value="Submit">Submit</button>
+	<a href="index.html" th:href="@{/index}">Go Back</a>
+</form>
+
+</body>
+</html>
