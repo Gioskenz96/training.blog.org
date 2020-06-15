@@ -36,9 +36,9 @@ public class ItemServiceImpl implements ItemService {
 	@Override
 	public Item create(Item item) {
 		item.setID(this.item.stream().mapToInt(
-                p -> p.getID()).max().getAsInt() + 1);
-        this.item.add(item);
-        return item;
+                	p -> p.getID()).max().getAsInt() + 1);
+        			this.item.add(item);
+       				return item;
 	}
 	
 	@Override
@@ -55,9 +55,9 @@ public class ItemServiceImpl implements ItemService {
 	@Override
 	public void deleteById(int id) {
 		for (int i = 0; i < this.item.size(); i++) {
-            if (Objects.equals(this.item.get(i).getID(), id)) {
-                this.item.remove(i);
-                return;
+            		if (Objects.equals(this.item.get(i).getID(), id)) {
+                		this.item.remove(i);
+                		return;
             }
         }
         throw new RuntimeException("Articolo non trovato: " + id);
